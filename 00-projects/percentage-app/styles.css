@@ -1,0 +1,50 @@
+/* ============================================================
+   CALCULADORA DE PORCENTAJES — styles.css
+   Aquí van SOLO los estilos que Tailwind no puede manejar solo:
+   animaciones, clases de comportamiento, y overrides de dark mode.
+   ============================================================ */
+
+/* Material Symbols icon font — ajuste de grosor y relleno */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* Elimina el highlight azul al tocar en móvil */
+.tap-highlight-none {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Altura mínima del body para que no quede corto en pantallas pequeñas */
+body {
+  min-height: max(884px, 100dvh);
+}
+
+/* ── SISTEMA DE PESTAÑAS (Tab system) ───────────────────────
+   Por defecto todos los paneles están ocultos.
+   El panel activo recibe la clase .active desde JavaScript.
+   ─────────────────────────────────────────────────────────── */
+.tab-panel {
+  display: none;
+}
+
+.tab-panel.active {
+  display: flex;
+}
+
+/* ── ANIMACIÓN DE ENTRADA para tarjetas del historial ───────
+   Cada nueva tarjeta aparece deslizándose suavemente desde arriba.
+   ─────────────────────────────────────────────────────────── */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.history-item {
+  animation: slideIn 0.2s ease;
+}
